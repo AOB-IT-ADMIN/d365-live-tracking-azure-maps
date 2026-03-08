@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D365 Live Tracking — Azure Maps</title>
+
+  <!-- Azure Maps SDK -->
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" />
+  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+
+  <link rel="stylesheet" href="/WebResources/cr971_LiveTrackingMapCSS" />
+</head>
+
+<body>
+  <!-- Header bar -->
+  <div class="header">
+    <div class="header-left">
+      <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="10" r="3" />
+        <path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8z" />
+      </svg>
+      <h1>Live Tracking</h1>
+    </div>
+    <div class="header-right">
+      <button id="btnRefresh" class="btn btn-icon" title="Refresh">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M1 4v6h6" />
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+        </svg>
+      </button>
+      <div class="auto-refresh-toggle">
+        <input type="checkbox" id="autoRefresh" checked />
+        <label for="autoRefresh">Auto-refresh</label>
+      </div>
+      <select id="refreshInterval" class="select">
+        <option value="10000">10s</option>
+        <option value="15000" selected>15s</option>
+        <option value="30000">30s</option>
+        <option value="60000">60s</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Active Users</h2>
+        <span class="badge" id="userCount">0</span>
+      </div>
+
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+        <input type="text" id="searchUsers" placeholder="Search users..." />
+      </div>
+
+      <div class="user-list" id="userList">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8z" />
+          </svg>
+          <p>No active users</p>
+          <p class="subtle">Users will appear here when they start tracking</p>
+        </div>
+      </div>
+
+      <!-- Date filter -->
+      <div class="sidebar-section">
+        <h3>Date Filter</h3>
+        <input type="date" id="dateFilter" class="date-input" />
+        <button id="btnClearDate" class="btn btn-secondary btn-sm">Clear</button>
+      </div>
+    </aside>
+
+    <!-- Map container -->
+    <div class="map-wrapper">
+      <div id="map"></div>
+
+      <!-- Metrics overlay -->
+      <div class="metrics-overlay" id="metricsOverlay" style="display:none;">
+        <div class="metrics-header">
+          <h3 id="metricsUserName">User</h3>
+          <button class="btn btn-icon btn-sm" id="btnCloseMetrics">✕</button>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-value" id="metricDistance">0.00</span>
+            <span class="metric-label">Distance (km)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="metricDuration">00:00:00</span>
+            <span class="metric-label">Duration</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="metricSpeed">0.0</span>
+            <span class="metric-label">Avg Speed (km/h)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" id="metricPoints">0</span>
+            <span class="metric-label">Data Points</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading overlay -->
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Loading tracking data…</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/WebResources/cr971_LiveTrackingMapJS"></script>
+</body>
+
+</html>
