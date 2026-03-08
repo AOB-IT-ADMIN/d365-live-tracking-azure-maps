@@ -95,7 +95,7 @@ d365-live-tracking/
     ├── setup-guide.md
     ├── crm-entity-setup.md
     ├── azure-ad-config.md
-    ├── architecture.md                 ← you are here
+    ├── architecture.md
     └── admin-user-guide.md
 ```
 

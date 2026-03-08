@@ -32,11 +32,11 @@ Upload from `crm-webresource/` in this order:
 In `LiveTrackingMap.js`, the `CONFIG` block at the top contains:
 ```js
 const CONFIG = {
-    azureMapsKey: 'YOUR_AZURE_MAPS_KEY_HERE',
+    azureMapsKey: 'YOUR_AZURE_MAPS_SUBSCRIPTION_KEY',  // ← replace this
     ...
 };
 ```
-Replace with your actual Azure Maps **Subscription Key** and re-upload.
+Replace `YOUR_AZURE_MAPS_SUBSCRIPTION_KEY` with your actual Azure Maps **Subscription Key**, then re-upload the JS file and publish.
 
 ### 5. Distribute to Users
 Send each user:

@@ -67,7 +67,9 @@ See [azure-ad-config.md](azure-ad-config.md) for full steps.
 
 **Quick summary:**
 1. Register an app in **portal.azure.com** → Azure Active Directory → App registrations
-2. Add Redirect URI: `exp://192.168.x.x:8081` (for Expo Go) and `d365livetracker://auth` (for production)
+2. Add Redirect URIs:
+   - `exp://YOUR_LAN_IP:8081` (for Expo Go — replace `YOUR_LAN_IP` with your machine's local network IP, e.g. `192.168.1.100`)
+   - `d365livetracker://auth` (for production standalone build)
 3. Add API Permission: `Dynamics CRM → user_impersonation`
 4. Note the **Application (client) ID** — users enter this in the app
 
