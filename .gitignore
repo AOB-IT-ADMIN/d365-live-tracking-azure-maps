@@ -25,6 +25,9 @@ build/
 android/
 ios/
 
+# ─── Internal / AI-generated planning files ──────────────────
+*.resolved
+
 # ─── OS & Editor ─────────────────────────────────────────────
 .DS_Store
 Thumbs.db
