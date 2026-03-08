@@ -12,11 +12,19 @@
 
 ## Screenshots
 
-| Mobile App | Live Tracking Map |
-|---|---|
-| ![Mobile App Dashboard](images/mobile_app/user_app_tracking.jpg) | ![Azure Maps Dashboard](images/web_app/map_overview.png) |
+### 📱 Mobile App
 
-> The Azure Maps web resource runs **inside Dynamics 365** — no extra hosting needed.
+| Dashboard (Idle) | Dashboard (Tracking Active) | Session History |
+|---|---|---|
+| ![Start Tracking](images/mobile_app/user_app_homepage_before_tracking.jpg) | ![Tracking Active](images/mobile_app/user_app_homepage_after_tracking.jpg) | ![History](images/mobile_app/user_app_tracking_history.jpg) |
+
+### 🗺️ Azure Maps Web Resource (inside Dynamics 365)
+
+| Live Map with User Trails | Selected User Metrics |
+|---|---|
+| ![Live Map Overview](images/web_app/map_overview.png) | ![User Selected](images/web_app/user_selected.png) |
+
+> The Azure Maps dashboard runs **inside Dynamics 365** as an embedded web resource — no external hosting required.
 
 ---
 
